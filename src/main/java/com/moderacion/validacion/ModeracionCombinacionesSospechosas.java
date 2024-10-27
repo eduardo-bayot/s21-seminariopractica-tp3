@@ -32,7 +32,7 @@ public class ModeracionCombinacionesSospechosas implements IModeracion {
       // Verifica si la combinación actual es una combinación sospechosa
       if (combinaciones.contains(combinacion)) {
         mensaje.setEstado(Mensaje.EstadoMensaje.BLOQUEADO);
-        mensaje.setRazonBloqueo("Contiene combinación sospechosa: " + combinacion);
+        mensaje.agregarRazonBloqueo("Contiene combinación sospechosa: " + combinacion);
         return true;
       }
     }

@@ -49,7 +49,7 @@ public class InMemoryMensajeDAO implements MensajeDAO {
         if (mensaje != null) {
             mensaje.setContenido(nuevoContenido);
             mensaje.setEstado(nuevoEstado);
-            mensaje.setRazonBloqueo(razonBloqueo);
+            mensaje.agregarRazonBloqueo(razonBloqueo);
             this.mensajes.put(mensaje.getId(), mensaje);
         }
     }

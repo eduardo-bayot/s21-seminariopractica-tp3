@@ -37,7 +37,7 @@ public class ModeracionRepeticion implements IModeracion {
         // Bloquear si hay mensajes repetidos en la ventana de tiempo
         if (conteo > 1) {
             mensaje.setEstado(Mensaje.EstadoMensaje.BLOQUEADO);
-            mensaje.setRazonBloqueo("Mensaje repetido en ventana de tiempo");
+            mensaje.agregarRazonBloqueo("Mensaje repetido en ventana de tiempo");
             return true;
         }
 

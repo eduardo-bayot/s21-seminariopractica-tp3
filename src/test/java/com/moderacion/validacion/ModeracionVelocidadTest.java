@@ -40,7 +40,7 @@ public class ModeracionVelocidadTest {
 
         assertTrue(resultado, "El mensaje debe ser bloqueado por haber sido enviado demasiado rápido");
         assertEquals(Mensaje.EstadoMensaje.BLOQUEADO, mensajeActual.getEstado());
-        assertEquals("Mensaje enviado demasiado rápido, posible bot", mensajeActual.getRazonBloqueo());
+        assertEquals("Mensaje enviado demasiado rápido, posible bot", mensajeActual.getRazonesBloqueo().get(mensajeActual.getRazonesBloqueo().size() - 1));
     }
 
     @Test
@@ -63,7 +63,7 @@ public class ModeracionVelocidadTest {
 
         assertFalse(resultado, "El mensaje no debe ser bloqueado ya que fue enviado en un intervalo aceptable");
         assertEquals(Mensaje.EstadoMensaje.NUEVO, mensajeActual.getEstado());
-        assertNull(mensajeActual.getRazonBloqueo());
+        assertTrue(mensajeActual.getRazonesBloqueo() == null || mensajeActual.getRazonesBloqueo().isEmpty());
     }
 }
 

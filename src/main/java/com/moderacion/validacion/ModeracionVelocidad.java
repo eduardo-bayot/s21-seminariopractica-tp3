@@ -31,7 +31,7 @@ public class ModeracionVelocidad implements IModeracion {
             // Bloquear si el mensaje fue enviado demasiado rápido
             if (diferenciaTiempo < TIEMPO_MINIMO_MS) {
                 mensaje.setEstado(Mensaje.EstadoMensaje.BLOQUEADO);
-                mensaje.setRazonBloqueo("Mensaje enviado demasiado rápido, posible bot");
+                mensaje.agregarRazonBloqueo("Mensaje enviado demasiado rápido, posible bot");
                 return true;
             }
         }

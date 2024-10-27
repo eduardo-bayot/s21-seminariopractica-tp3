@@ -18,7 +18,7 @@ public class ModeracionPuntuacionTest {
         
         assertTrue(resultado, "El mensaje debe ser bloqueado por exceso de puntuación");
         assertEquals(Mensaje.EstadoMensaje.BLOQUEADO, mensaje.getEstado());
-        assertEquals("Exceso de puntuación", mensaje.getRazonBloqueo());
+        assertEquals("Exceso de puntuación", mensaje.getRazonesBloqueo().get(mensaje.getRazonesBloqueo().size() - 1));
     }
     
     @Test
@@ -30,7 +30,7 @@ public class ModeracionPuntuacionTest {
         
         assertFalse(resultado, "El mensaje no debe ser bloqueado");
         assertEquals(Mensaje.EstadoMensaje.NUEVO, mensaje.getEstado());
-        assertNull(mensaje.getRazonBloqueo());
+        assertTrue(mensaje.getRazonesBloqueo() == null || mensaje.getRazonesBloqueo().isEmpty());
     }
 }
 

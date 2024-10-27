@@ -30,7 +30,7 @@ public class ModeracionPalabrasProhibidas implements IModeracion {
 
         if (!palabraProhibida.isEmpty()) {
             mensaje.setEstado(Mensaje.EstadoMensaje.BLOQUEADO);
-            mensaje.setRazonBloqueo("Contiene palabra prohibida: " + palabraProhibida.iterator().next());
+            mensaje.agregarRazonBloqueo("Contiene palabra prohibida: " + palabraProhibida.iterator().next());
             return true;
         }
         return false;

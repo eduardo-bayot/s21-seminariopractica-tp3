@@ -18,7 +18,7 @@ public class ModeracionTelefonoTest {
 
         assertTrue(resultado, "El mensaje debe ser bloqueado por contener un número de teléfono");
         assertEquals(Mensaje.EstadoMensaje.BLOQUEADO, mensaje.getEstado());
-        assertEquals("Contiene número de teléfono", mensaje.getRazonBloqueo());
+        assertEquals("Contiene número de teléfono", mensaje.getRazonesBloqueo().get(mensaje.getRazonesBloqueo().size() - 1));
     }
 
     @Test
@@ -30,7 +30,7 @@ public class ModeracionTelefonoTest {
 
         assertFalse(resultado, "El mensaje no debe ser bloqueado");
         assertEquals(Mensaje.EstadoMensaje.NUEVO, mensaje.getEstado());
-        assertNull(mensaje.getRazonBloqueo());
+        assertTrue(mensaje.getRazonesBloqueo() == null || mensaje.getRazonesBloqueo().isEmpty());
     }
 }
 

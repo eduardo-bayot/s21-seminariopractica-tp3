@@ -18,7 +18,7 @@ public class ModeracionCorreoElectronico implements IModeracion {
 
         if (EMAIL_PATTERN.matcher(contenido).find()) {
             mensaje.setEstado(Mensaje.EstadoMensaje.BLOQUEADO);
-            mensaje.setRazonBloqueo("Contiene correo electrónico");
+            mensaje.agregarRazonBloqueo("Contiene correo electrónico");
             return true;
         }
 

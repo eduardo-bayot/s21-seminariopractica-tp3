@@ -14,7 +14,7 @@ public class ModeracionCombinacionesSospechosasTest {
 
         assertTrue(moderacion.validar(mensaje));
         assertEquals(Mensaje.EstadoMensaje.BLOQUEADO, mensaje.getEstado());
-        assertEquals("Contiene combinación sospechosa: enviar dinero", mensaje.getRazonBloqueo());
+        assertEquals("Contiene combinación sospechosa: enviar dinero", mensaje.getRazonesBloqueo().get(mensaje.getRazonesBloqueo().size() - 1));
     }
 
     @Test
@@ -24,7 +24,7 @@ public class ModeracionCombinacionesSospechosasTest {
 
         assertFalse(moderacion.validar(mensaje));
         assertEquals(Mensaje.EstadoMensaje.NUEVO, mensaje.getEstado());
-        assertNull(mensaje.getRazonBloqueo());
+        assertTrue(mensaje.getRazonesBloqueo() == null || mensaje.getRazonesBloqueo().isEmpty());
     }
 }
 

@@ -34,7 +34,7 @@ public class ModeracionMayusculas implements IModeracion {
         double porcentajeMayusculas = (double) mayusculas / totalLetras;
         if (porcentajeMayusculas > UMBRAL_MAYUSCULAS) {
             mensaje.setEstado(Mensaje.EstadoMensaje.BLOQUEADO);
-            mensaje.setRazonBloqueo("Exceso de mayúsculas");
+            mensaje.agregarRazonBloqueo("Exceso de mayúsculas");
             return true;
         }
 

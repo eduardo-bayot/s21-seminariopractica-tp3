@@ -18,7 +18,7 @@ public class ModeracionCorreoElectronicoTest {
 
         assertTrue(resultado, "El mensaje debe ser bloqueado por contener un correo electrónico");
         assertEquals(Mensaje.EstadoMensaje.BLOQUEADO, mensaje.getEstado());
-        assertEquals("Contiene correo electrónico", mensaje.getRazonBloqueo());
+        assertEquals("Contiene correo electrónico", mensaje.getRazonesBloqueo().get(mensaje.getRazonesBloqueo().size() - 1));
     }
 
     @Test
@@ -30,7 +30,7 @@ public class ModeracionCorreoElectronicoTest {
 
         assertFalse(resultado, "El mensaje no debe ser bloqueado");
         assertEquals(Mensaje.EstadoMensaje.NUEVO, mensaje.getEstado());
-        assertNull(mensaje.getRazonBloqueo());
+        assertTrue(mensaje.getRazonesBloqueo() == null || mensaje.getRazonesBloqueo().isEmpty());
     }
 }
 

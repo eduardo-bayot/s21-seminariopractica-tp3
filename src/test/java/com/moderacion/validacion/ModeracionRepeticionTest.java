@@ -42,7 +42,7 @@ public class ModeracionRepeticionTest {
 
         assertTrue(resultado, "El mensaje debe ser bloqueado por ser repetido en la ventana de tiempo");
         assertEquals(Mensaje.EstadoMensaje.BLOQUEADO, mensajeActual.getEstado());
-        assertEquals("Mensaje repetido en ventana de tiempo", mensajeActual.getRazonBloqueo());
+        assertEquals("Mensaje repetido en ventana de tiempo", mensajeActual.getRazonesBloqueo().get(mensajeActual.getRazonesBloqueo().size() - 1));
     }
 
     @Test
@@ -64,6 +64,6 @@ public class ModeracionRepeticionTest {
 
         assertFalse(resultado, "El mensaje no debe ser bloqueado porque no se considera repetido en la ventana de tiempo");
         assertEquals(Mensaje.EstadoMensaje.NUEVO, mensajeActual.getEstado());
-        assertNull(mensajeActual.getRazonBloqueo());
+        assertTrue(mensajeActual.getRazonesBloqueo() == null || mensajeActual.getRazonesBloqueo().isEmpty());
     }
 }

@@ -18,7 +18,7 @@ public class ModeracionTelefono implements IModeracion {
 
         if (PHONE_PATTERN.matcher(contenido).find()) {
             mensaje.setEstado(Mensaje.EstadoMensaje.BLOQUEADO);
-            mensaje.setRazonBloqueo("Contiene número de teléfono");
+            mensaje.agregarRazonBloqueo("Contiene número de teléfono");
             return true;
         }
 

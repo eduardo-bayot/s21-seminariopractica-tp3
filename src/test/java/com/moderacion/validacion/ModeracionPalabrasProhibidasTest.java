@@ -26,7 +26,7 @@ public class ModeracionPalabrasProhibidasTest {
 
         assertTrue(resultado, "El mensaje debe ser bloqueado por contener palabras prohibidas");
         assertEquals(Mensaje.EstadoMensaje.BLOQUEADO, mensaje.getEstado());
-        assertEquals("Contiene palabra prohibida: palabraprohibida1", mensaje.getRazonBloqueo());
+        assertEquals("Contiene palabra prohibida: palabraprohibida1", mensaje.getRazonesBloqueo().get(mensaje.getRazonesBloqueo().size() - 1));
     }
 
     @Test
@@ -36,7 +36,7 @@ public class ModeracionPalabrasProhibidasTest {
 
         assertFalse(resultado, "El mensaje no debe ser bloqueado porque no contiene palabras prohibidas");
         assertEquals(Mensaje.EstadoMensaje.NUEVO, mensaje.getEstado());
-        assertNull(mensaje.getRazonBloqueo());
+        assertTrue(mensaje.getRazonesBloqueo() == null || mensaje.getRazonesBloqueo().isEmpty());
     }
 }
 

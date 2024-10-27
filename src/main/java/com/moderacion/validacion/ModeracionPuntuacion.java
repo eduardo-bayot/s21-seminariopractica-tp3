@@ -40,7 +40,7 @@ public class ModeracionPuntuacion implements IModeracion {
         double porcentajePuntuacion = (double) signosPuntuacion / totalCaracteres;
         if (porcentajePuntuacion > UMBRAL_PUNTUACION) {
             mensaje.setEstado(Mensaje.EstadoMensaje.BLOQUEADO);
-            mensaje.setRazonBloqueo("Exceso de puntuación");
+            mensaje.agregarRazonBloqueo("Exceso de puntuación");
             return true;
         }
 
